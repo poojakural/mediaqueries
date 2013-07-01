@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<head>
+<script src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript"  src="test.js"></script>
+<style type="text/css">
+label {
+	width:50%;
+}
+
+.item {
+   background: none repeat scroll 0 0 #FFAA9E;
+    border: 1px solid #D6978E;
+    float: left;
+    height: 11px;
+    margin-bottom: 10px;
+    margin-right: 16px;
+    padding: 4px 8px 13px;
+    text-align: center;
+  
+  }
+
+#tr9 {
+  margin-right: 0;
+}
+#devices {
+   float: left;
+    height: 808px;
+    margin-left: 33px;
+    overflow: hidden;
+    padding: 20px 0;
+    width: 1012px;
+}
+
+.media-queries {
+   height: 70px;
+    padding: 10px 0;
+}
+
+.curly-bracket {
+    padding-bottom: 20px;
+}
+
+.active {
+  background: #e1e1e1;
+}
+.input-fields {
+  float: left;
+}
+
+/*
+#tr1,#tr2,#tr3,#tr4,#tr5,#tr6,#tr7,#tr8,#tr9 {
+  position: absolute;
+}
+
+#tr1{
+margin-top:169px;
+}
+
+
+#tr2 {
+  margin-top:9px;
+  margin-left: 350px;
+}
+
+#tr3 {
+  margin-left: 622px;
+    margin-top:9px;
+}
+
+
+#tr4 {
+    margin-top: 45px;
+}
+
+#tr5 {
+    margin-left: 350px;
+    margin-top: 169px;
+}
+
+#tr6 {
+     margin-left: 622px;
+    margin-top: 320px;
+}
+
+#tr7 {
+margin-top:209px;
+}
+
+#tr8 {
+      margin-left: 350px;
+    margin-top: 320px;
+}
+
+#tr9 {
+   margin-left: 622px;
+    margin-top: 480px;
+}*/
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>No of queries <span class="value">4</span></h1>
+  <span class="plus">Add more media queries</span>
+  <div class="inner-conatiner">
+      <label>max</label><label>min</label>
+      <form class="input-fields">
+        <div class="row1">
+          <input type="text" value="769" class="min1"/>
+          <input type="text" value ="1000" class="max1"/>
+          <div class="media-queries">
+             @media (<span class="min-value">min-width:769</span>,<span class="max-value">max-width:1000</span>){</div>
+          <div class="curly-bracket"> }</div>
+        </div>
+        <div class="row2">
+          <input type="text" value="481" class="min2"/>
+          <input type="text" value ="768" class="max2"/>
+          <div class="media-queries">
+             @media (<span class="min-value">min-width:481</span>,<span class="max-value">max-width:768</span>){</div>
+          <div class="curly-bracket"> }</div>
+        </div>
+        <div class="row3">
+          <input type="text" value="241" class="min3"/>
+          <input type="text" value ="480" class="max3"/>
+          <div class="media-queries">
+             @media (<span class="min-value">min-width:241</span>,<span class="max-value">max-width:480</span>){</div>
+          <div class="curly-bracket"> }</div>
+        </div>
+        <div class="row4">
+          <input type="text" value="0" class="min4"/>
+          <input type="text" value ="240" class="max4"/>
+          <div class="media-queries">
+             @media (<span class="min-value">min-width:0</span>,<span class="max-value">max-width:240</span>){</div>
+          <div class="curly-bracket"> }</div>
+        </div>
+      </form>
+      <div id="devices">
+      <!--   <div class="item desktop">nexus 4</div>
+        <div class="item phone">Nexus 10</div>
+        <div class="item tablet">iPad 3</div>
+        <div class="item desktop">Nexus 7</div>
+         <div class="item phone">nexus 4</div>
+        <div class="item tablet">Nexus 10</div>
+        <div class="item desktop">iPad 3</div>
+        <div class="item phone">Nexus 7</div>
+         <div class="item tablet">nexus 4</div> -->
+        
+      </div>
+  </div>
+</div>
+</body>
+</html>
