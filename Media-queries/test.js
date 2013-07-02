@@ -2,12 +2,15 @@ $(document).ready(function () {
     addinputfields();
     mediaqueriesgenrate();
     device_compatablity();
-    deviceslist();
+     managedeviceonload();
 
 
+$(".positive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
 
 
 });
+
+
 
 function devicesname() {
     var data = {
@@ -23,6 +26,7 @@ function devicesname() {
                 "name": "iPad 3",
                 "width": "1024",
                 "id": "tr3",
+                
             }, {
                 "name": "nexus 7",
                 "width": "1000",
@@ -67,7 +71,7 @@ function addinputfields() {
         z = s + 1;
         $('.input-fields').each(function (div) {
             // mediaqueriesgenrate();
-            $('<div class=' + k + '><input type="text" value="0" class=min' + s + '><input type="text" value ="0"class=max' + s + '><div class="media-queries"> @media (<span class="min-value">min-width:0</span>,<span class="max-value">max-width:0</span>){</div> <div class="curly-bracket">}</div></div>')
+            $('<div class=' + k + '><input type="text" value="0" class=min' + s + '> <input type="text" value ="0"class=max' + s + '><div class="media-queries"> @media (<span class="min-value">min-width:0</span>,<span class="max-value">max-width:0</span>){</div> <div class="curly-bracket">}</div></div>')
                 .appendTo('.input-fields');
         });
         i++;
@@ -109,6 +113,9 @@ function mediaqueriesgenrate() {
             max = '.max' + numeric;
             minwidth = data;
             data--;
+          if(data < 0){
+            data = data * -1;
+          }
             $(max).val(data);
             changemaxmedia = numeric_row + " .media-queries .max-value";
             $(changemaxmedia).html("max-width:" + data);
@@ -124,6 +131,10 @@ function mediaqueriesgenrate() {
             min = ".min" + numeric;
             maxwidth = data;
             data++;
+              if(data < 0){
+            data = data * -1;
+            alert(data);
+          }
             $(min).val(data);
             changeminwidth = numeric_row + " .media-queries .min-value";
             $(changeminwidth).html("min-width:" + data);
@@ -139,6 +150,12 @@ function device_compatablity() {
         changemaxmedia, changeminwidth, currentdevice, maxdevice, length = 0;
     var list = "<div class=devices-list1>",
         output;
+            $('.plus').click(function(){
+    var height = $('.input-fields').height();
+    var item_height = height+20; 
+    $('#devices,.devices-list1').css("height",item_height);
+
+    });
     data1 = devicesname();
     for (var i in data1.devices) {
         list += '<div class="item" id="' + data1.devices[i].id + '"' + '>' + data1.devices[i].name + ' ' + data1.devices[i].width + "</div>";
@@ -159,8 +176,6 @@ function device_compatablity() {
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val(); 
-            $(".devices-list1 div").removeClass();
-  $(".devices-list1 div").addClass("item");
             for (var t = 1; t <= total_row; t++) {
                 eachmindevicewidth = '.min' + t;
                 eachmaxdevicewidth = '.max' + t;
@@ -169,37 +184,110 @@ function device_compatablity() {
                 for (var i in data1.devices) {
                     if (parseInt(eachmaxdevicewidth) >= parseInt(data1.devices[i].width) && parseInt(eachmindevicewidth) <= parseInt(data1.devices[i].width)) {
                         //alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
-                        selectrow = '#' + data1.devices[i].id;
-                        $(selectrow).addClass("row" + t);
+                       selectrow = '#' + data1.devices[i].id;
+                         $(selectrow).addClass("row-" + t);
                     }
                 }
+                
+            }
+            for(var s= 1; s<=total_row; s++){
+                move =".row-"+s;
+            if( move = '.row-1'){
+              $(move).animate({"top":"60px"}, "slow");
+            }
+             if( move = '.row-2'){
+              $(move).animate({"top": "212px"}, "slow");
+            }
+            if( move = '.row-3'){
+              $(move).animate({"top": "363px"}, "slow");
+            }
+            if( move = '.row-4'){
+              $(move).animate({"top": "480px"}, "slow");
+            }
+             if( move = '.row-5'){
+              $(move).animate({"top": "654px"}, "slow");
+            }
+             if( move = '.row-6'){
+              $(move).animate({"top": "806px"}, "slow");
+            }
+             if( move = '.row-7'){
+              $(move).animate({"top": "951px"}, "slow");
+            }
+              if( move = '.row-8'){
+              $(move).animate({"top": "1106px"}, "slow");
+            }
+             if( move = '.row-9'){
+              $(move).animate({"top": "1281px"}, "slow");
+            }
+             if( move = '.row-10'){
+              $(move).animate({"top": "1416px"}, "slow");
+            }
+            }
+             $(".devices-list1 div").removeClass();
+             $('.devices-list1 div').attr('style','');
+               $(".devices-list1 div").addClass("item");
             }
 
-
-        }
+        
            else{
             total_row = $('.value').html();
             //alert(break_point);
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val();
-                        $(".devices-list1 div").removeClass();
-                          $(".devices-list1 div").addClass("item");
+             $('.devices-list1 div').attr('style','');
+             $(".devices-list1 div").removeClass();
+          
             for (var t = 1; t <= total_row; t++) {
-                eachmindevicewidth = '.min' + t;
-                eachmaxdevicewidth = '.max' + t;
-                eachmindevicewidth = $(eachmindevicewidth).val();
-                eachmaxdevicewidth = $(eachmaxdevicewidth).val();
+                eachminwidth = '.min' + t;
+                eachmaxwidth = '.max' + t;
+                eachminwidth = $(eachminwidth).val();
+                eachmaxwidth = $(eachmaxwidth).val();
               
                 for (var i in data1.devices) {
-                    if (parseInt(eachmaxdevicewidth) >= parseInt(data1.devices[i].width) && parseInt(eachmindevicewidth) <= parseInt(data1.devices[i].width)) {
-                        //alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
+                    if (parseInt(eachmaxwidth) >= parseInt(data1.devices[i].width) && parseInt(eachminwidth) <= parseInt(data1.devices[i].width)) {
+                       // alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
                          selectrow = '#' + data1.devices[i].id;
-                        $(selectrow).addClass("row" + t);
+                        $(selectrow).addClass("row-" + t);
                     }
                 }
-
-
+               for(var s= 1; s<=total_row; s++){
+              
+              move =".row-"+s;
+            if( move = '.row-1'){
+              $(move).animate({"top":"50px"}, "slow");
+            }
+             if( move = '.row-2'){
+              $(move).animate({"top": "212px"}, "slow");
+            }
+            if( move = '.row-3'){
+              $(move).animate({"top": "363px"}, "slow");
+            }
+            if( move = '.row-4'){
+              $(move).animate({"top": "480px"}, "slow");
+            }
+             if( move = '.row-5'){
+              $(move).animate({"top": "654px"}, "slow");
+            }
+             if( move = '.row-6'){
+              $(move).animate({"top": "806px"}, "slow");
+            }
+             if( move = '.row-7'){
+              $(move).animate({"top": "951px"}, "slow");
+            }
+              if( move = '.row-8'){
+              $(move).animate({"top": "1106px"}, "slow");
+            }
+             if( move = '.row-9'){
+              $(move).animate({"top": "1281px"}, "slow");
+            }
+             if( move = '.row-10'){
+              $(move).animate({"top": "1416px"}, "slow");
+            }
+            }
+           $(".devices-list1 div").removeClass();
+            $('.devices-list1 div').attr('style','');
+          $(".devices-list1 div").addClass("item");
             }
 
 
@@ -208,6 +296,12 @@ function device_compatablity() {
 
 }
 
-function deviceslist() {
+function   managedeviceonload() {
+window.onload = function(){
+    $('#tr1,#tr5').animate({"top": "180px"}, "slow");
+    $('#tr4,#tr2,#tr3').animate({"top":"50px"}, "slow");
+    $('#tr6,#tr7,#tr8').animate({"top":"345px"}, "slow");
+    $('#tr9').animate({"top":"480px"}, "slow");
 
+}
 }
