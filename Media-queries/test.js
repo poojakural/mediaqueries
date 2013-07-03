@@ -105,12 +105,19 @@ function mediaqueriesgenrate() {
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val();
-            // alert(maxdevice);
-            // alert(currentdevice);
+             // alert(maxdevice);
+             // alert(currentdevice);
+            if(currentdevice >= maxdevice){
+             currentdevice++;
+              alert('yesy');
+           changenumber =".max" + numeric;
+           $(changenumber).val(currentdevice);
+            }
             //var totalwidth = maxdevice + currentdevice;
             numeric++;
             numeric_row = ".row" + numeric;
             max = '.max' + numeric;
+            // alert(max);
             minwidth = data;
             data--;
           if(data < 0){
@@ -125,8 +132,17 @@ function mediaqueriesgenrate() {
             mindevice = ".min" + numeric
             mindevice = $(mindevice).val();
             currentmindevice = $(this).val();
-
+            // alert(currentmindevice);
+            // alert(mindevice);
+            // alert(numeric);
+           //  if(currentmindevice >= mindevice){
+           //    currentmindevice--;
+           //    alert('yesy');
+           // changeminnumber =".min" + numeric;
+           // $(changeminnumber).val(currentmindevice);
+           //  }
             numeric--;
+
             numeric_row = ".row" + numeric;
             min = ".min" + numeric;
             maxwidth = data;
@@ -172,7 +188,6 @@ function device_compatablity() {
         row = '.row' + numeric;
         if (condition == '0') {
             total_row = $('.value').html();
-            //alert(break_point);
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val(); 
@@ -183,7 +198,7 @@ function device_compatablity() {
                 eachmaxdevicewidth = $(eachmaxdevicewidth).val();
                 for (var i in data1.devices) {
                     if (parseInt(eachmaxdevicewidth) >= parseInt(data1.devices[i].width) && parseInt(eachmindevicewidth) <= parseInt(data1.devices[i].width)) {
-                        //alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
+                        // alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
                        selectrow = '#' + data1.devices[i].id;
                          $(selectrow).addClass("row-" + t);
                     }
@@ -193,7 +208,7 @@ function device_compatablity() {
             for(var s= 1; s<=total_row; s++){
                 move =".row-"+s;
             if( move = '.row-1'){
-              $(move).animate({"top":"60px"}, "slow");
+              $(move).animate({"top":"50px"}, "slow");
             }
              if( move = '.row-2'){
               $(move).animate({"top": "212px"}, "slow");
@@ -223,21 +238,19 @@ function device_compatablity() {
               $(move).animate({"top": "1416px"}, "slow");
             }
             }
-             $(".devices-list1 div").removeClass();
-             $('.devices-list1 div').attr('style','');
-               $(".devices-list1 div").addClass("item");
+             // $(".devices-list1 div").removeClass();
+             // $('.devices-list1 div').attr('style','');
+             //   $(".devices-list1 div").addClass("item");
             }
-
-        
            else{
             total_row = $('.value').html();
             //alert(break_point);
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val();
-             $('.devices-list1 div').attr('style','');
-             $(".devices-list1 div").removeClass();
-          
+             // $('.devices-list1 div').attr('style','');
+              $(".devices-list1 div").removeClass();
+          $(".devices-list1 div").addClass("item");
             for (var t = 1; t <= total_row; t++) {
                 eachminwidth = '.min' + t;
                 eachmaxwidth = '.max' + t;
@@ -246,7 +259,7 @@ function device_compatablity() {
               
                 for (var i in data1.devices) {
                     if (parseInt(eachmaxwidth) >= parseInt(data1.devices[i].width) && parseInt(eachminwidth) <= parseInt(data1.devices[i].width)) {
-                       // alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
+                     //  alert(data1.devices[i].width + 'excute' + currentdevice + 'excute' + maxdevice);
                          selectrow = '#' + data1.devices[i].id;
                         $(selectrow).addClass("row-" + t);
                     }
@@ -285,9 +298,9 @@ function device_compatablity() {
               $(move).animate({"top": "1416px"}, "slow");
             }
             }
-           $(".devices-list1 div").removeClass();
+          //  $(".devices-list1 div").removeClass();
             $('.devices-list1 div').attr('style','');
-          $(".devices-list1 div").addClass("item");
+          // $(".devices-list1 div").addClass("item");
             }
 
 
