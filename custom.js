@@ -15,42 +15,56 @@ $(".positive").numeric({ negative: false }, function() { alert("No negative valu
 function devicesname() {
     var data = {
         "devices": [{
-                "name": "nexus 4",
-                "width": "560",
-                "id": "tr1",
+                "name": "Android (Samsung Galaxy) portrait",
+                "width": "380",
+                "id": "tr380",
             }, {
-                "name": "nexus 10",
-                "width": "1050",
-                "id": "tr2",
+                "name": "Android (Samsung Galaxy) landscape",
+                "width": "685",
+                "id": "tr685",
             }, {
-                "name": "iPad 3",
+                "name": "Kindle landscape",
                 "width": "1024",
-                "id": "tr3",
+                "id": "tr11024",
                 
             }, {
-                "name": "nexus 7",
-                "width": "1000",
-                "id": "tr4",
+                "name": "Kindle portrait",
+                "width": "600",
+                "id": "tr600",
+                
+            },{
+                "name": "iPad landscape",
+                "width": "1024",
+                "id": "tr1024",
+                
             }, {
-                "name": "nexus 4",
+                "name": "iPad portrait",
                 "width": "768",
-                "id": "tr5",
+                "id": "tr768",
             }, {
-                "name": "nexus 10",
-                "width": "478",
-                "id": "tr6",
-            }, {
-                "name": "iPad 3",
-                "width": "499",
-                "id": "tr7",
-            }, {
-                "name": "nexus 7",
+                "name": "iPhone 3+4 landscape",
                 "width": "320",
-                "id": "tr8",
+                "id": "tr320",
             }, {
-                "name": "nexus 4",
+                "name": "iPhone 5 landscape ",
+                "width": "568",
+                "id": "tr568",
+            },  {
+                "name": "iPhone 3+4 landscape",
+                "width": "480",
+                "id": "tr480",
+            }, {
+                "name": "Crappy Android landscape",
+                "width": "320",
+                "id": "tr1320",
+            },{
+                "name": "iPhone 5 portrait",
+                "width": "320",
+                "id": "tr2320",
+            }, {
+                "name": "Crappy Android portrait",
                 "width": "240",
-                "id": "tr9",
+                "id": "tr240",
             }
 
         ]
@@ -109,7 +123,6 @@ function mediaqueriesgenrate() {
              // alert(currentdevice);
             if(currentdevice >= maxdevice){
              currentdevice++;
-              alert('yesy');
            changenumber =".max" + numeric;
            $(changenumber).val(currentdevice);
             }
@@ -174,7 +187,7 @@ function device_compatablity() {
     });
     data1 = devicesname();
     for (var i in data1.devices) {
-        list += '<div class="item" id="' + data1.devices[i].id + '"' + '>' + data1.devices[i].name + ' ' + data1.devices[i].width + "</div>";
+        list += '<div class="item" id="' + data1.devices[i].id + '"' + '>' + data1.devices[i].name +"</div>";
         length++;
     }
     list += "</div>";
@@ -191,6 +204,8 @@ function device_compatablity() {
             maxdevice = ".max" + numeric;
             maxdevice = $(maxdevice).val();
             currentdevice = $(this).val(); 
+              $(".devices-list1 div").removeClass();
+          $(".devices-list1 div").addClass("item");
             for (var t = 1; t <= total_row; t++) {
                 eachmindevicewidth = '.min' + t;
                 eachmaxdevicewidth = '.max' + t;
@@ -208,13 +223,13 @@ function device_compatablity() {
             for(var s= 1; s<=total_row; s++){
                 move =".row-"+s;
             if( move = '.row-1'){
-              $(move).animate({"top":"50px"}, "slow");
+              $(move).animate({"top":"19px"}, "slow");
             }
              if( move = '.row-2'){
-              $(move).animate({"top": "212px"}, "slow");
+              $(move).animate({"top": "175px"}, "slow");
             }
             if( move = '.row-3'){
-              $(move).animate({"top": "363px"}, "slow");
+              $(move).animate({"top": "332px"}, "slow");
             }
             if( move = '.row-4'){
               $(move).animate({"top": "480px"}, "slow");
@@ -265,16 +280,15 @@ function device_compatablity() {
                     }
                 }
                for(var s= 1; s<=total_row; s++){
-              
-              move =".row-"+s;
+                move =".row-"+s;
             if( move = '.row-1'){
-              $(move).animate({"top":"50px"}, "slow");
+              $(move).animate({"top":"19px"}, "slow");
             }
              if( move = '.row-2'){
-              $(move).animate({"top": "212px"}, "slow");
+              $(move).animate({"top": "175px"}, "slow");
             }
             if( move = '.row-3'){
-              $(move).animate({"top": "363px"}, "slow");
+              $(move).animate({"top": "332px"}, "slow");
             }
             if( move = '.row-4'){
               $(move).animate({"top": "480px"}, "slow");
@@ -311,10 +325,10 @@ function device_compatablity() {
 
 function   managedeviceonload() {
 window.onload = function(){
-    $('#tr1,#tr5').animate({"top": "180px"}, "slow");
-    $('#tr4,#tr2,#tr3').animate({"top":"50px"}, "slow");
-    $('#tr6,#tr7,#tr8').animate({"top":"345px"}, "slow");
-    $('#tr9').animate({"top":"480px"}, "slow");
+   $('#tr1000,#tr1024,#tr11024').animate({"top":"19px"}, "slow");
+    $('#tr685,#tr600,#tr768,#tr568').animate({"top": "170px"}, "slow");
+    $('#tr380,#tr499,#tr320,#tr380,#tr480,#tr1320,#tr2320').animate({"top":"330px"}, "slow");
+    $('#tr240').animate({"top":"470px"}, "slow");
 
 }
 }
